@@ -35,6 +35,13 @@
   color: white;
 }
 
+.problems_count {
+  background-color: #96c596;
+  font-size: 20px;
+  padding: 14px 40px;
+  border-radius: 10px;
+}
+
 .App-link {
   color: #61dafb;
 }
