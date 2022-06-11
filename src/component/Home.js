@@ -2,7 +2,6 @@ import React, {useState, useEffect, useContext} from 'react'
 import {OpenContext} from "../context/ControlContext";
 import logo from "../programming.svg";
 import {Link} from "react-router-dom";
-
 function Home() {
 
     const isOpenUtil = useContext(OpenContext)
@@ -23,14 +22,16 @@ function Home() {
     return (
         <div className="HomePage">
             <header className="HomePage-header">
-                <img src={logo} className="HomePage-logo" alt="logo"/>
-                <p>
-                    計算機概論－測試
-                </p>
+                {/*<img src={logo} className="HomePage-logo" alt="logo"/>*/}
+                <h2 className={'HomePage-Title1'}>
+                    計算機概論
+                </h2>
+                <h2 className={'HomePage-Title2'}>
+                    題庫練習
+                </h2>
+                <br/>
                 <Link to={'/question'}>
-                    <button className="link" onClick={() => {
-                        isOpenUtil.setOpenContext(!isOpenUtil.openContext)
-                    }}>
+                    <button className="link">
                         點擊開始練習題目
                     </button>
                 </Link>

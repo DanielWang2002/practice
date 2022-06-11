@@ -3,7 +3,7 @@ import Question from "../component/Question";
 const QuestionPage = () => {
 
     return (
-        <Question></Question>
+        <Question ans='123'/>
     )
 
 }

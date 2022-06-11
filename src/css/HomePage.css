@@ -5,6 +5,9 @@
 .HomePage-logo {
     height: 20vmin;
     pointer-events: none;
+    position: relative;
+    width: 150px;
+    height: 300px;
 }
 
 @media (prefers-reduced-motion: no-preference) {
@@ -14,8 +17,11 @@
 }
 
 .HomePage-header {
-    background-color: #272C5B;
-    min-height: 120vh;
+    background-image: url("../css/images/background.jpg");
+    background-size: cover;
+    min-height: 100vh;
+    margin: 0;
+    padding: 0;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -25,21 +31,37 @@
 }
 
 .link {
-    background-color: #8FBC8F;
-    padding: 14px 40px;
-    border-radius: 10px;
+    border-radius: 20px;
+    background: #ababab;
 }
 
 .link:hover {
-    background-color: #4CAF50;
-    color: white;
+    border-radius: 25px;
+    background: #bababa;
+    box-shadow:  13px 13px 26px #ababab,
+    -13px -13px 26px #c9c9c9;
 }
 
-.problems_count {
-    background-color: #96c596;
-    font-size: 20px;
-    padding: 14px 40px;
-    border-radius: 10px;
+.HomePage-Title1 {
+    color: #decece;
+    font-size: 40px;
+}
+
+.HomePage-Title2 {
+    color: #decece;
+    font-size: 40px;
+}
+
+@media screen and (min-width: 350px) and (max-width: 900px) {
+    .HomePage-Title1 {
+        color: #decece;
+        font-size: 30px;
+    }
+
+    .HomePage-Title2 {
+        color: #decece;
+        font-size: 30px;
+    }
 }
 
 .HomePage-link {

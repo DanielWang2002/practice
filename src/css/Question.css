@@ -1,0 +1,43 @@
+.submit-btn {
+    min-width: 100%;
+    width: 100%;
+    border-radius: 25px;
+    background: #bbb9b9;
+    position: absolute;
+    left: 50%;
+    transform: translate(-50%, -110%);
+}
+
+.QuestionsDiv {
+    border-radius: 10px;
+    margin: 30px;
+    padding: 15px;
+    background-color: #bbb9b9;
+}
+
+.QuestionsPage-title {
+    text-align: center;
+    color: #ffffff;
+    font-size: 40px;
+}
+
+/*寬度為350~900間 (手機)*/
+@media screen and (min-width: 350px) and (max-width: 900px) {
+    .QuestionsDiv {
+        border-radius: 10px;
+        margin: 25px;
+        padding: 15px;
+        background-color: #bbb9b9;
+    }
+}
+
+.QuestionsPage-header {
+    background-image: url("../css/images/background.jpg");
+    background-size: 100% 100%;
+}
+
+input[type="radio"] {
+    -ms-transform: scale(1.15); /* IE 9 */
+    -webkit-transform: scale(1.15); /* Chrome, Safari, Opera */
+    transform: scale(1.15);
+}

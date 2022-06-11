@@ -1,0 +1,46 @@
+.correct-answer {
+    background: #a8e5cc;
+    border-radius: 10px;
+}
+
+.incorrect-answer {
+    background: #eab8b8;
+    border-radius: 10px;
+}
+
+/*寬度為350~900間 (手機)*/
+@media screen and (min-width: 350px) and (max-width: 900px) {
+    .correct-answer {
+        background: #a8e5cc;
+        padding: 10px;
+        margin: 10px;
+    }
+
+    .incorrect-answer {
+        background: #eab8b8;
+        padding: 10px;
+        margin: 20px;
+    }
+}
+
+.total-score {
+    color: #ffffff;
+    font-size: 50px;
+    font-family: Courier New;
+    text-align: center;
+}
+
+.ScorePage-header {
+    background-image: url("../css/images/background.jpg");
+    background-size: cover;
+}
+
+.correct-answer {
+    margin: 50px;
+    padding: 10px;
+}
+
+.incorrect-answer {
+    margin: 50px;
+    padding: 10px;
+}

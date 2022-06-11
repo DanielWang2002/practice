@@ -5,8 +5,6 @@ import {useEffect, useState} from "react";
 import {OpenContext} from "../context/ControlContext";
 import Home from "../component/Home";
 
-let problems_count = 0
-
 const HomePage = () => {
 
     const [isOpen, setIsOpen] = useState(true)

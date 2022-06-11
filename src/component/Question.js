@@ -1,14 +1,22 @@
 import React, {useState, useEffect} from 'react'
+import {Button} from "reactstrap";
+import '../css/Question.css'
+import {Link} from "react-router-dom";
+
+// 儲存Answer及QId ex: {'2':'A', '17':'C'}
+let GLOBOL_Answer_QId = {}
+let GLOBOL_AllAnswerHasChecked = false
 
 function Question() {
 
-    console.log('--- invoke function component ---');
+    // 清空GLOBOL_Answer_QId
+    GLOBOL_Answer_QId = {}
+
     const [QuestionsData, setQuestionsData] = useState(
         {}
     )
 
     useEffect(() => {
-        console.log('execute function in useEffect');
         fetchQuestionsData()
     }, [])
 
@@ -30,36 +38,113 @@ function Question() {
     }
 
     return (
-        <div>
-            {console.log("Render")}
-            <header className="QuestionsPage">
-                <button onClick={() => {
-                    console.log(QuestionsData)
-                }}>
-                    TestingBtn
-                </button>
-                <p>
-                    題目區 <br/>
+        <div className='background'>
+            <header className="QuestionsPage-header">
+                <p className='QuestionsPage-title'>
+                    計算機概論
+                    <br/>
+                    總題數： 5
                 </p>
                 {/*列出所有題目&選項*/}
                 {Object.entries(QuestionsData).map(([key, value]) => (
-                    <div>
+
+                    <div className='QuestionsDiv'>
                         <p>{key}. {value['Description']}</p>
-                        <input name={'OptDes_Q' + key} type={'radio'}/> {'(' + value['OptId1'] + ')'} {value['OptDes1']}<br/>
-                        <input name={'OptDes_Q' + key} type={'radio'}/> {'(' + value['OptId2'] + ')'} {value['OptDes2']}<br/>
-                        <input name={'OptDes_Q' + key} type={'radio'}/> {'(' + value['OptId3'] + ')'} {value['OptDes3']}<br/>
-                        <input name={'OptDes_Q' + key} type={'radio'}/> {'(' + value['OptId4'] + ')'} {value['OptDes4']}<br/>
+                        <div className="col">
+                            &nbsp;<input name={'OptDes_Q' + key}
+                                         value='A'
+                                         type={'radio'}
+                                         onClick={() => {
+                                             addAnswerWithQId('A', value['QId'])
+                                         }}/>&nbsp;
+                            {'(' + value['OptId1'] + ')'} {value['OptDes1']}
+                        </div>
+                        <div className="col">
+                            &nbsp;<input name={'OptDes_Q' + key}
+                                         value='B'
+                                         type={'radio'}
+                                         onClick={() => {
+                                             addAnswerWithQId('B', value['QId'])
+                                         }}/>&nbsp;
+                            {'(' + value['OptId2'] + ')'} {value['OptDes2']}
+                        </div>
+                        <div className="col">
+                            &nbsp;<input name={'OptDes_Q' + key}
+                                         value='C'
+                                         type={'radio'}
+                                         onClick={() => {
+                                             addAnswerWithQId('C', value['QId'])
+                                         }}/>&nbsp;
+                            {'(' + value['OptId3'] + ')'} {value['OptDes3']}
+                        </div>
+                        <div className="col">
+                            &nbsp;<input name={'OptDes_Q' + key}
+                                         value='D'
+                                         type={'radio'}
+                                         onClick={() => {
+                                             addAnswerWithQId('D', value['QId'])
+                                         }}/>&nbsp;
+                            {'(' + value['OptId4'] + ')'} {value['OptDes4']}
+                        </div>
+                        <br/>
                     </div>
+
                 ))}
+                <br/>
+
+                <Link to='/score'>
+                    <button className='submit-btn' onClick={(e) => {
+
+                        // 確認題目是否都完成了
+                        checkEmptyAnswer()
+                        // 如果有題目未完成，取消Link動作
+                        if (!GLOBOL_AllAnswerHasChecked) e.preventDefault()
+
+                    }}> 提交答案
+                    </button>
+                </Link>
+
             </header>
         </div>
     )
 
 }
 
-function getRandomInt(max) {
-    return Math.floor(Math.random() * max) + 1;
+// 將Answer及QId儲存在Dict，供Link to /score時做使用
+function addAnswerWithQId(answer, QId) {
+    GLOBOL_Answer_QId[QId] = answer
 }
+
+export function getAnswerWithQId() {
+    return GLOBOL_Answer_QId
+}
+
+
+// 確認是否有未作答的答案
+function checkEmptyAnswer() {
+
+    /*
+    如果定義text時出錯代表無答案，以X代替
+     */
+
+    // i = 題數
+    for (let i = 1; i <= 5; i++) {
+
+        try {
+            const text = document.querySelector(`input[name=OptDes_Q${i.toString()}]:checked`).value
+        } catch (e) {
+            alert(`第 ${i.toString()} 題未作答，請檢查！`)
+            return
+        }
+
+    }
+
+    GLOBOL_AllAnswerHasChecked = true
+}
+
+// function getRandomInt(max) {
+//     return Math.floor(Math.random() * max) + 1;
+// }
 
 
 export default Question
