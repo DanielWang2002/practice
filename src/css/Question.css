@@ -1,11 +1,18 @@
 .submit-btn {
-    min-width: 100%;
-    width: 100%;
+    min-width: 1%;
+    /*width: 8%;*/
     border-radius: 25px;
     background: #bbb9b9;
-    position: absolute;
-    left: 50%;
-    transform: translate(-50%, -110%);
+    position: relative;
+    /*left: 79%;*/
+    /*transform: translate(-50%, -110%);*/
+}
+
+.submit-btn:hover {
+    border-radius: 25px;
+    background: #bababa;
+    box-shadow:  13px 13px 26px #ababab,
+    -13px -13px 26px #c9c9c9;
 }
 
 .QuestionsDiv {
@@ -21,6 +28,19 @@
     font-size: 40px;
 }
 
+.LinkToHome {
+    float: left;
+    border-radius: 20px;
+    background: #ababab;
+}
+
+.LinkToHome:hover {
+    border-radius: 25px;
+    background: #bababa;
+    box-shadow:  13px 13px 26px #ababab,
+    -13px -13px 26px #c9c9c9;
+}
+
 /*寬度為350~900間 (手機)*/
 @media screen and (min-width: 350px) and (max-width: 900px) {
     .QuestionsDiv {
@@ -28,6 +48,12 @@
         margin: 25px;
         padding: 15px;
         background-color: #bbb9b9;
+    }
+    .submit-btn {
+        min-width: 1%;
+        border-radius: 25px;
+        background: #bbb9b9;
+        position: relative;
     }
 }
 

@@ -1,7 +1,18 @@
 import React, {useState, useEffect, useContext} from 'react'
 import {OpenContext} from "../context/ControlContext";
-import logo from "../programming.svg";
-import {Link} from "react-router-dom";
+import {Button, ThemeProvider} from "@mui/material";
+import {createTheme} from "@mui/material";
+
+const theme = createTheme({
+
+    palette: {
+        LinkToQuestionButton: {
+            main: '#424242',
+        }
+    },
+
+});
+
 function Home() {
 
     const isOpenUtil = useContext(OpenContext)
@@ -18,27 +29,32 @@ function Home() {
     }, [isOpenUtil.openContext])
 
 
-
     return (
         <div className="HomePage">
-            <header className="HomePage-header">
-                {/*<img src={logo} className="HomePage-logo" alt="logo"/>*/}
-                <h2 className={'HomePage-Title1'}>
-                    計算機概論
-                </h2>
-                <h2 className={'HomePage-Title2'}>
-                    題庫練習
-                </h2>
-                <br/>
-                <Link to={'/question'}>
-                    <button className="link">
-                        點擊開始練習題目
-                    </button>
-                </Link>
-                <br/>
-                <p className={'Time'}>現在時間 {getDateTime()}</p>
+            <ThemeProvider theme={theme}>
+                <header className="HomePage-header">
+                    {/*<img src={logo} className="HomePage-logo" alt="logo"/>*/}
+                    <h2 className={'HomePage-Title1'}>
+                        臺北商業大學資訊管理系
+                    </h2>
+                    <h2 className={'HomePage-Title2'}>
+                        轉學考題庫練習
+                    </h2>
+                    <br/>
+                    <Button variant="contained" href="/question" color='LinkToQuestionButton'
+                            className='LinkToQuestionButton' sx={{color: '#ffffff'}} size='large'>
+                        正式測驗(40題)
+                    </Button>
+                    <br/>
+                    <Button variant="contained" href="/Testquestion" color='LinkToQuestionButton'
+                            className='LinkToQuestionButton' sx={{color: '#ffffff'}} size='large'>
+                        牛刀小試(5題)
+                    </Button>
+                    <br/>
+                    <p className={'Time'}>現在時間 {getDateTime()}</p>
 
-            </header>
+                </header>
+            </ThemeProvider>
         </div>
     )
 

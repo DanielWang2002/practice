@@ -8,6 +8,18 @@
     border-radius: 10px;
 }
 
+.LinkToQuestions {
+    border-radius: 20px;
+    background: #ababab;
+}
+
+.LinkToQuestions:hover {
+    border-radius: 25px;
+    background: #bababa;
+    box-shadow:  13px 13px 26px #ababab,
+    -13px -13px 26px #c9c9c9;
+}
+
 /*寬度為350~900間 (手機)*/
 @media screen and (min-width: 350px) and (max-width: 900px) {
     .correct-answer {

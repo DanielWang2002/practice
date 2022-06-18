@@ -7,7 +7,7 @@ import {Link} from "react-router-dom";
 let GLOBOL_Answer_QId = {}
 let GLOBOL_AllAnswerHasChecked = false
 
-function Question() {
+function TestQuestion() {
 
     // 清空GLOBOL_Answer_QId
     GLOBOL_Answer_QId = {}
@@ -25,7 +25,7 @@ function Question() {
             method: 'GET'
         };
 
-        fetch('http://danielwang.xyz:3006/getQuestions', requestOptions)
+        fetch('http://danielwang.xyz:3006/getTestQuestions', requestOptions)
             .then((res) => res.text())
             .then((responseData) => {
                 let data = (JSON.parse(responseData)['data'])
@@ -119,7 +119,7 @@ function addAnswerWithQId(answer, QId) {
     GLOBOL_Answer_QId[QId] = answer
 }
 
-export function getAnswerWithQId() {
+export function getAnswerWithQIdTest() {
     return GLOBOL_Answer_QId
 }
 
@@ -132,7 +132,7 @@ function checkEmptyAnswer() {
      */
 
     // i = 題數
-    for (let i = 1; i <= 40; i++) {
+    for (let i = 1; i <= 5; i++) {
 
         try {
             const text = document.querySelector(`input[name=OptDes_Q${i.toString()}]:checked`).value
@@ -151,4 +151,4 @@ function checkEmptyAnswer() {
 // }
 
 
-export default Question
+export default TestQuestion

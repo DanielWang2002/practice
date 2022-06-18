@@ -33,9 +33,11 @@ function Score(props) {
     }
 
     try {
+
         return (
             <div>
                 <header className={'ScorePage-header'}>
+
                     {Object.entries(props.answerList).map(([QId, data]) => {
                         let QData = Object.entries(QuestionsData)[QId - 1][1];
                         let answer = QData['Answer'];
@@ -46,7 +48,7 @@ function Score(props) {
                         }
                     })}
 
-                    <p className='total-score'>您的分數： {score}</p>
+                    <p className='total-score'>您的分數：{score}</p>
 
                     {Object.entries(props.answerList).map(([QId, data]) => {
                         let QData = Object.entries(QuestionsData)[QId - 1][1]
@@ -80,12 +82,17 @@ function Score(props) {
                     })}
 
                     <Link to={'/question'}>
-                        <button className="link" onClick={() => {score = 0}}>
-                            再次練習
+                        <button className="LinkToQuestions" onClick={() => {score = 0}}>
+                            重新測驗(40題)
+                        </button>
+                    </Link>
+                    <Link to={'/testQuestion'}>
+                        <button className="LinkToQuestions" onClick={() => {score = 0}}>
+                            重新測驗(5題)
                         </button>
                     </Link>
                     <Link to={'/'}>
-                        <button className="link" onClick={() => {score = 0}}>
+                        <button className="LinkToHome" onClick={() => {score = 0}}>
                             回到首頁
                         </button>
                     </Link>

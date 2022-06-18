@@ -30,16 +30,13 @@
     color: white;
 }
 
-.link {
-    border-radius: 20px;
-    background: #ababab;
+.LinkToQuestionButton {
+    color: #000000;
 }
 
-.link:hover {
-    border-radius: 25px;
-    background: #bababa;
-    box-shadow:  13px 13px 26px #ababab,
-    -13px -13px 26px #c9c9c9;
+.LinkToQuestionButton:hover {
+    color: #000000;
+    background-color: #707070;
 }
 
 .HomePage-Title1 {
@@ -52,6 +49,12 @@
     font-size: 40px;
 }
 
+.Time {
+    font-size: 25px;
+    position: relative;
+    top: 70px;
+}
+
 @media screen and (min-width: 350px) and (max-width: 900px) {
     .HomePage-Title1 {
         color: #decece;
@@ -61,6 +64,10 @@
     .HomePage-Title2 {
         color: #decece;
         font-size: 30px;
+    }
+
+    .Time {
+        font-size: 20px;
     }
 }
 
